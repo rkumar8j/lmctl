@@ -477,6 +477,8 @@ class BrentSourceCreatorDelegate(handlers_api.ResourceSourceCreatorDelegate):
             descriptor.add_property('localizationLanguage', description='Localization language of the VNF to be instantiated', ptype='string')    
             descriptor.insert_lifecycle('Install')
             descriptor.insert_lifecycle('Configure')
+            descriptor.insert_lifecycle('Start')
+            descriptor.insert_lifecycle('Stop')
             descriptor.insert_lifecycle('Uninstall')
         elif lifecycle_type == LIFECYCLE_TYPE_SOL005:
             file_ops.append(handlers_api.CreateDirectoryOp(source_tree.sol005_lifecycle_path, handlers_api.EXISTING_IGNORE))
