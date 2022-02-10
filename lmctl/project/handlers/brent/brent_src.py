@@ -477,6 +477,10 @@ class BrentSourceCreatorDelegate(handlers_api.ResourceSourceCreatorDelegate):
             descriptor.add_property('localizationLanguage', description='Localization language of the VNF to be instantiated', ptype='string')
             descriptor.insert_lifecycle('Create')
             descriptor.insert_lifecycle('Install')
+<<<<<<< HEAD
+=======
+            descriptor.insert_lifecycle('Configure')
+>>>>>>> parent of c69117b (Update brent_src.py)
             descriptor.insert_lifecycle('Uninstall')
             descriptor.insert_lifecycle('Delete')
         elif lifecycle_type == LIFECYCLE_TYPE_SOL005:
