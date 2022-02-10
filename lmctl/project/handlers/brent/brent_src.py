@@ -474,12 +474,11 @@ class BrentSourceCreatorDelegate(handlers_api.ResourceSourceCreatorDelegate):
             descriptor.add_property('flavourId', description='Identifier of the VNF DF to be instantiated', ptype='string', required=True)
             descriptor.add_property('instantiationLevelId', description='Identifier of the instantiation level of the deployment flavour to be instantiated. If not present, the default instantiation level as declared in the VNFD is instantiated', \
                 ptype='string')
-            descriptor.add_property('localizationLanguage', description='Localization language of the VNF to be instantiated', ptype='string')    
+            descriptor.add_property('localizationLanguage', description='Localization language of the VNF to be instantiated', ptype='string')
+            descriptor.insert_lifecycle('Create')
             descriptor.insert_lifecycle('Install')
-            descriptor.insert_lifecycle('Configure')
-            descriptor.insert_lifecycle('Start')
-            descriptor.insert_lifecycle('Stop')
             descriptor.insert_lifecycle('Uninstall')
+            descriptor.insert_lifecycle('Delete')
         elif lifecycle_type == LIFECYCLE_TYPE_SOL005:
             file_ops.append(handlers_api.CreateDirectoryOp(source_tree.sol005_lifecycle_path, handlers_api.EXISTING_IGNORE))
             sol005_tree = Sol005LifecycleTree(source_tree.sol005_lifecycle_path)
